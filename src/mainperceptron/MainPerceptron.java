@@ -20,7 +20,6 @@ public class MainPerceptron {
     public static void main(String[] args) {
         ArrayList<Integer[]> x = new ArrayList<Integer[]>();  // inputs
         ArrayList<Integer> s = new ArrayList<Integer>();  // solutions
-        int aux1,aux2;
         Integer[] xx ;
         
         for(int i=0;i<=1;i++){
