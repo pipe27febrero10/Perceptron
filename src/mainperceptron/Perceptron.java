@@ -13,8 +13,8 @@ import java.util.ArrayList;
  */
 public class Perceptron {
 
-    private float w[];
-    private float umbral = 1.5f;
+    private float w[]; // se altera en el aprendizaje
+    private float umbral = 1.5f; // se altera en el aprendizaje
     private float x0 = 1;
     private float factorGanancia = 1;
 
