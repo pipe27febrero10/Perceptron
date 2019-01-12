@@ -13,39 +13,36 @@ import java.util.ArrayList;
  */
 public class Perceptron {
     private float w[];
-    private float umbral=1;
+    private float umbral=1.5f;
     private float x0 = 1;
-    private int x1,x2;
-    private int y1;
-    private float total;
     private float factorGanancia=1;
 
 
-    public Perceptron(float[] w,int x1, int x2) {
+    public Perceptron(float[] w) {
         this.w = w;
-        this.x1 = x1;
-        this.x2 = x2;
+      
     }
     
-    public float calculateFunction(){
-       this.total = w[0]*x1 + w[1]*x2-x0*umbral;  
-       return this.total; 
+    public float calculateFunction(int x1,int x2){
+      float total  = w[0]*x1 + w[1]*x2+x0*umbral;  
+       return total; 
     }
     
-    public int activationFunction(){
-        if(this.total>0){
-            y1 = 1;
-            return y1;
+    public int activationFunction(float total){
+        if(total>=0){
+            
+            return 1;
         }
         else{
-            y1 = 0;
-            return y1;
+            return 0;
         }
     }
-    
-    public int error(int salidaDeseada){
-        System.out.println("salidadeseada "+ salidaDeseada+ " salida real"+this.y1);
-        int error = salidaDeseada - this.y1;
+    public void printFunction(){
+        System.out.println("Funcion nueva ajustada: "+this.w[0]+"*x1 +"+this.w[1]+"*x2 + "+this.umbral+"*x0");
+    }
+    public int error(int salidaDeseada,int salidaY1){
+      //  System.out.println("salidadeseada "+ salidaDeseada+ " salida real"+this.y1);
+        int error = salidaDeseada - salidaY1;
         return error;
     }
 
@@ -61,30 +58,17 @@ public class Perceptron {
         return x0;
     }
 
-    public int getX1() {
-        return x1;
-    }
-
-    public int getX2() {
-        return x2;
-    }
-
-    public int getY1() {
-        return y1;
-    }
-
-    public float getTotal() {
-        return total;
-    }
+   
 
     public void setW(float[] w) {
         this.w = w;
     }
-    public void setW(int error) {
-        if(error!=0){ // arreglar si no es cero
-           this.w[0] = this.w[0] + this.factorGanancia*error*this.x1;
-           this.w[1] = this.w[1] + this.factorGanancia*error*this.x2;
-        }
+    public void setW(int error,int x1,int x2) {
+        
+           this.umbral = this.umbral +this.factorGanancia*error*this.x0;
+           this.w[0] = this.w[0] + this.factorGanancia*error*x1;
+           this.w[1] = this.w[1] + this.factorGanancia*error*x2;
+        
     }
 
     public void setUmbral(float umbral) {
@@ -95,22 +79,7 @@ public class Perceptron {
         this.x0 = x0;
     }
 
-    public void setX1(int x1) {
-        this.x1 = x1;
-    }
-
-    public void setX2(int x2) {
-        this.x2 = x2;
-    }
-
-    public void setY1(int y1) {
-        this.y1 = y1;
-    }
-
-    public void setTotal(float total) {
-        this.total = total;
-    }
-  
+ 
    
    
     
