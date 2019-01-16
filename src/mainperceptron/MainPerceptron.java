@@ -5,6 +5,7 @@
  */
 package mainperceptron;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -83,7 +84,7 @@ public class MainPerceptron {
                    NAND.setUmbral(neuronalNetworkNAND.getPerceptron().getUmbral());
         Perceptron AND = new Perceptron(neuronalNetworkAND.getPerceptron().getW());
                    AND.setUmbral(neuronalNetworkAND.getPerceptron().getUmbral());
-        int A = 1, B = 0;
+        int A = 0, B = 0;
         
         int salidaNAND = NAND.activationFunction(NAND.calculateFunction(A, B));
         int salidaOR = OR.activationFunction(OR.calculateFunction(B, A));
@@ -93,12 +94,11 @@ public class MainPerceptron {
         System.out.println("salidas NAND"+salidaNAND);
         System.out.println("salidas OR "+salidaOR);
         System.out.println("A es : "+A+" B es : "+B+" SOLUCION : "+resultadoXOR);
+     
         
+    
         
-        
-        
-        
-                
+       
         
         // FIN DE RESOLUCION COMPUERTA XOR
        
