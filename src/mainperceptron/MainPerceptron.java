@@ -84,7 +84,7 @@ public class MainPerceptron {
                    NAND.setUmbral(neuronalNetworkNAND.getPerceptron().getUmbral());
         Perceptron AND = new Perceptron(neuronalNetworkAND.getPerceptron().getW());
                    AND.setUmbral(neuronalNetworkAND.getPerceptron().getUmbral());
-        int A = 0, B = 0;
+        int A = (int) Math.floor(Math.random()*2), B = (int) Math.floor(Math.random()*2);
         
         int salidaNAND = NAND.activationFunction(NAND.calculateFunction(A, B));
         int salidaOR = OR.activationFunction(OR.calculateFunction(B, A));
